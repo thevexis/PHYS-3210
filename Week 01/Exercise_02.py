@@ -52,10 +52,11 @@ data = np.loadtxt("data/DS_Tuc_A_W0400_N5000_B0000_sDart.dat.gz")
 # YOUR TASK: unflatten the array to recover the original set of 400 
 #            walkers each with 5,000 steps (entries). store the results
 #            in a new array called `chains`.
+chains = np.reshape(data, (400, 5000, 6))
 
 
 # YOUR TASK: print the shape of the array to the screen
-
+print(chains)
 
 # plot each individual chain (walker that takes N steps)
 for chain in chains:
@@ -64,7 +65,9 @@ plt.show()
 
 # YOUR TASK: find the star's predicted mass by finding median of the 
 #            first column of values (index 0) from the flattened data.
-
+data_columns = np.swapaxes(data, 0, 1)
+average_mass = np.median(data_columns[0])
+print(average_mass)
 
 # CHALLENGE: find the best mass by flattening *only* the final step from
 #            each chain.
