@@ -45,4 +45,48 @@ Created on Tue Aug 20 11:02:00 2019
 
 @author: gafeiden
 """
+import math as math
 
+x_input = input("Enter a value x to recieve sin(x): ", )
+x = float(x_input)
+
+finite_sum_N = input("Enter a number, where larger numbers increase accuracy: ", )
+N = int(finite_sum_N)
+
+if N > 10000:
+    print("Too many approximations!")
+    finite_sum_N = input("Enter a number, where larger numbers increase accuracy: ", )
+
+
+
+sine_actual = math.sin(x)
+
+def my_factorial(k):
+    if k == 0:
+        return 1
+    else:
+        return k * my_factorial(k-1)
+
+for n in range(0, N):
+    
+    k = (2*n)+1
+    sine_x = 0
+    function = ((-1)**n)*(x**((2*n)+1))/(my_factorial(k))
+    sine_x += function
+    
+    if  sine_actual < sine_x:
+        print("It takes ", n, "approximations to converge.")
+        break
+    
+sine_x_f = "{0:.6f}".format(sine_x)  
+  
+print("Approximation of sine fuction is ", sine_x_f)
+print("Actual sine fuction gives: ", sine_actual)
+error = (sine_actual - sine_x)/(sine_actual)*100
+print("The error of approximation is ", error,"%")
+    
+    
+    
+    
+    
+    
