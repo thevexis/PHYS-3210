@@ -45,7 +45,10 @@ Created on Tue Aug 20 11:02:00 2019
 
 @author: gafeiden
 """
+
+import matplotlib.pyplot as plt
 import math as math
+import numpy as np
 
 x_input = input("Enter a value x to recieve sin(x): ", )
 x = float(x_input)
@@ -69,24 +72,60 @@ def my_factorial(k):
 
 for n in range(0, N):
     
-    k = (2*n)+1
-    sine_x = 0
-    function = ((-1)**n)*(x**((2*n)+1))/(my_factorial(k))
+    k = (2*((n)+1)+1)
+    if n == 0:
+        sine_x = x
+    
+    function = ((-1)**((n)+1)*(x**((2*((n)+1)+1)))/(my_factorial(k)))
+    
     sine_x += function
     
-    if  sine_actual < sine_x:
-        print("It takes ", n, "approximations to converge.")
+    if  np.absolute(function) < 10**(-8):
+        print("It takes ", n+1, "approximations to converge.")
         break
-    
-sine_x_f = "{0:.6f}".format(sine_x)  
+      
   
-print("Approximation of sine fuction is ", sine_x_f)
+print("Approximation of sine fuction is ", sine_x)
 print("Actual sine fuction gives: ", sine_actual)
-error = (sine_actual - sine_x)/(sine_actual)*100
+relative_error = (sine_actual - sine_x)/(sine_actual)*100
 print("The error of approximation is ", error,"%")
     
+N = 500
+
+for x in range(1, 100):
+    for n in range(0, N):
     
+        k = (2*((n)+1)+1)
+        if n == 0:
+            sine_x = x
     
+        function = ((-1)**((n)+1)*(x**((2*((n)+1)+1)))/(my_factorial(k)))
+    
+        sine_x += function
+    
+        if  np.absolute(function) < 10**(-8):
+            print("It takes ", n+1, "approximations to converge.")
+            break
+    
+    sine_actual = math.sin(x)
+    relative_error = (sine_actual - sine_x)/(sine_actual)*100
+    
+    print(x)
+    print(relative_error)
+    
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    x_points = x
+    y_points = relative_error
+    p = ax.plot(x, relative_error, 'b')
+    ax.set_xlabel('x-values')
+    ax.set_ylabel('relative_error')
+    ax.set_title('Sine_X approximation Error')
+fig.show()
+    
+
+#I do not know how to graph in python but I gave it an attempt 
+#
     
     
     
