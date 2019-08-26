@@ -125,7 +125,9 @@ fig.show()
     
 
 #I do not know how to graph in python but I gave it an attempt 
-#
+#The relative error increases as x increases
+#At x=34 it took 55 approximations and the relative error final exceeded 0 
+#The relative error continues to increase from there in an exponential pattern
     
     
     
