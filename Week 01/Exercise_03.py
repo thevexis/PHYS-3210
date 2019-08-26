@@ -88,9 +88,13 @@ for n in range(0, N):
 print("Approximation of sine fuction is ", sine_x)
 print("Actual sine fuction gives: ", sine_actual)
 relative_error = (sine_actual - sine_x)/(sine_actual)*100
-print("The error of approximation is ", error,"%")
+print("The error of approximation is ", relative_error,"%")
+
     
 N = 500
+
+fig = plt.figure()
+ax = fig.add_subplot(111)
 
 for x in range(1, 100):
     for n in range(0, N):
@@ -104,7 +108,6 @@ for x in range(1, 100):
         sine_x += function
     
         if  np.absolute(function) < 10**(-8):
-            print("It takes ", n+1, "approximations to converge.")
             break
     
     sine_actual = math.sin(x)
@@ -113,21 +116,56 @@ for x in range(1, 100):
     print(x)
     print(relative_error)
     
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
+ 
+    
     x_points = x
     y_points = relative_error
-    p = ax.plot(x, relative_error, 'b')
-    ax.set_xlabel('x-values')
-    ax.set_ylabel('relative_error')
-    ax.set_title('Sine_X approximation Error')
+    p = ax.semilogy(x, relative_error, 'o', c='b')
+
+
+
+ax.set_xlabel('X-Values')
+ax.set_ylabel('Relative_Error')
+ax.set_title('Sine_X approximation Error')
 fig.show()
-    
+
 
 #I do not know how to graph in python but I gave it an attempt 
 #The relative error increases as x increases
 #At x=34 it took 55 approximations and the relative error final exceeded 0 
 #The relative error continues to increase from there in an exponential pattern
+ 
+print("Now! We will do better!")   
+new_x = input("Enter another value for x: ", )    
+  
+x = float(new_x)
+y = x % (2*math.pi)
+  
+if (x)/(2*math.pi) >= 1:
+    if y == 0:
+        x = 0
+    x = x/(2*math.pi)
+
+for n in range(0, 500):
     
+        k = (2*((n)+1)+1)
+        if n == 0:
+            sine_x = x
     
+        function = ((-1)**((n)+1)*(x**((2*((n)+1)+1)))/(my_factorial(k)))
     
+        sine_x += function
+    
+        if  np.absolute(function) < 10**(-8):
+            print("It takes ", n+1, "approximations to converge.")
+            break
+
+print(sine_x)
+
+s =  math.sin(x)
+print(s)
+
+
+
+
+
