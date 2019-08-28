@@ -58,12 +58,10 @@ for A in range(0,5):
     viral_load = A*np.exp((-1)*alpha*time)+ B*np.exp((-1)*beta*time)
     x_points = viral_load
     y_points = time
-    p = ax.plot(x_points, y_points, 'o', c='r')
-    ax.set_xlabel('Viral Load')
-    ax.set_ylabel('Time')
-    ax.set_title('HIV Graph')
-    fig.show()
+    p = ax.plot(x_points, y_points, 'o', c='r', label="A")
     
+    
+   
 for B in range(0,5):
     
     A = 1
@@ -73,12 +71,10 @@ for B in range(0,5):
     viral_load = A*np.exp((-1)*alpha*time)+ B*np.exp((-1)*beta*time)
     x_points = viral_load
     y_points = time
-    p = ax.plot(x_points, y_points, 'o', c='g')
-    ax.set_xlabel('Viral Load')
-    ax.set_ylabel('Time')
-    ax.set_title('HIV Graph')
-    fig.show()
+    p = ax.plot(x_points, y_points, '-', c='g', label="B")
     
+    
+
 for alpha in range(0,5):
     
     A = 1
@@ -88,12 +84,10 @@ for alpha in range(0,5):
     viral_load = A*np.exp((-1)*alpha*time)+ B*np.exp((-1)*beta*time)
     x_points = viral_load
     y_points = time
-    p = ax.plot(x_points, y_points, 'o', c='c')
-    ax.set_xlabel('Viral Load')
-    ax.set_ylabel('Time')
-    ax.set_title('HIV Graph')
-    fig.show()
+    p = ax.plot(x_points, y_points, 'o', c='c', label="alpha")
     
+    
+
 for beta in range(0,5):
     
     A = 1
@@ -103,13 +97,15 @@ for beta in range(0,5):
     viral_load = A*np.exp((-1)*alpha*time)+ B*np.exp((-1)*beta*time)
     x_points = viral_load
     y_points = time
-    p = ax.plot(x_points, y_points, 'o', c='b')
-    ax.set_xlabel('Viral Load')
-    ax.set_ylabel('Time')
-    ax.set_title('HIV Graph')
-    fig.show()
-
-                
+    p = ax.plot(x_points, y_points, '-', c='b', label="beta")
+    
+    
+ax.set_xlabel('Viral Load')
+ax.set_ylabel('Time')
+ax.set_title('HIV Graph')
+ax.legend(loc='upper right')
+fig.show()
+plt.savefig("HIV.pdf")
 
 
 #plt.plot(time, viral_load)
