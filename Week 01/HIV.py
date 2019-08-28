@@ -58,7 +58,9 @@ for A in range(0,5):
     viral_load = A*np.exp((-1)*alpha*time)+ B*np.exp((-1)*beta*time)
     x_points = viral_load
     y_points = time
-    p = ax.plot(x_points, y_points, 'o', c='r', label="A")
+    p = ax.plot(x_points, y_points, 'o', c='r')
+    
+p = ax.plot(x_points, y_points, 'o', c='r', label="A")
     
     
    
@@ -71,7 +73,9 @@ for B in range(0,5):
     viral_load = A*np.exp((-1)*alpha*time)+ B*np.exp((-1)*beta*time)
     x_points = viral_load
     y_points = time
-    p = ax.plot(x_points, y_points, '-', c='g', label="B")
+    p = ax.plot(x_points, y_points, '-', c='g')
+    
+p = ax.plot(x_points, y_points, '-', c='g', label="B")
     
     
 
@@ -84,7 +88,9 @@ for alpha in range(0,5):
     viral_load = A*np.exp((-1)*alpha*time)+ B*np.exp((-1)*beta*time)
     x_points = viral_load
     y_points = time
-    p = ax.plot(x_points, y_points, 'o', c='c', label="alpha")
+    p = ax.plot(x_points, y_points, 'o', c='c')
+    
+p = ax.plot(x_points, y_points, 'o', c='c', label="alpha")
     
     
 
@@ -97,7 +103,9 @@ for beta in range(0,5):
     viral_load = A*np.exp((-1)*alpha*time)+ B*np.exp((-1)*beta*time)
     x_points = viral_load
     y_points = time
-    p = ax.plot(x_points, y_points, '-', c='b', label="beta")
+    p = ax.plot(x_points, y_points, '-', c='b')
+    
+p = ax.plot(x_points, y_points, '-', c='b', label="beta")
     
     
 ax.set_xlabel('Viral Load')
