@@ -33,7 +33,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 HIV_data = np.loadtxt("C:/Users/theve/Documents/GitHub/PHYS-3210/Week 01/data/HIVseries.csv")
-
+plt.plot(HIV_data)
     
 time = np.linspace(1,10,101)
 
