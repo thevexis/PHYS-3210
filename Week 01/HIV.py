@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Wed Aug 28 07:51:08 2019
+Created on Fri Aug 30 09:55:03 2019
 
 @author: thevexis
 
@@ -27,12 +28,11 @@ and use that as our equation for python to solve which would take more time and 
 
 
 
-
-
-
 import math as math
 import numpy as np
 import matplotlib.pyplot as plt
+
+HIV_data = np.loadtxt("C:/Users/theve/Documents/GitHub/PHYS-3210/Week 01/data/HIVseries.csv")
 
     
 time = np.linspace(1,10,101)
@@ -117,3 +117,4 @@ plt.savefig("HIV.pdf")
 
 
 #plt.plot(time, viral_load)
+
