@@ -98,7 +98,8 @@ One problem with the algorithm is that we do not know which value
 of _N_ is suitable for calculating the series' sum. Instead of guessing, 
 have your code compute the partial sum until the _N_<sup>th</sup> term 
 contributes a negligible amount to the partial sum, say 1 part in 
-10<sup>8</sup>.
+10<sup>8</sup>. When the correction is below this threshold, we say the
+code has achieved _numerical convergence_.
 
 Before writing any lines of code, discuss an approach with your neighbor
 and write out on paper how your code should proceed. Code up your 
@@ -106,30 +107,41 @@ approach in Spyder once you're done.
 
 Here are your tasks:
 
-   1. Perform a Maclaurin series expansion of the function sin(x) to 
+   1. Perform a Maclaurin series expansion of the function sin(_x_) to 
       derive the equation above. 
    2. Derive a generalized, finite summation form for the series based 
       on your Maclaurin series expansion.
    3. Discuss with your neighbor about how to approach coding the problem
       and write out on paper how you code should proceed. 
    4. Code your approach in Spyder once you are finished.
-   5. Show that, for small values of x, the series converges.
-   6. Which value for _N_ was required to reach the desired precision and
-      obtain convergence?
-   7. Compare your results to the value determined using NumPy's sine 
-      function.
-   8. Steadily increase x and write down the relative error between your
-      calculated value for sin(x) and the NumPy function's value. 
-   9. What do you notice about the relative error?
-  10. Will there be a time when the series does not converge? Make a plot
-      of the relative error vs x to support your answer.
+   5. Show that, for small values of _x_, the algorithm converges and that
+      it converges to the correct value by comparing your results to the
+      value determined using NumPy's sine function.
+   6. Which value for _N_ was required to reach the desired precision
+      to obtain numerical convergence for small values of _x_?
+   7. Steadily increase _x_ and write down the relative error between your
+      calculated value for sin(_x_) and the NumPy function's value. 
+   8. What do you notice about the relative error?
+   9. Will there be a time when the series does not numerically converge? 
+      Make a figure or two from the data you generate to support your 
+      conclusion.
+  10. **_Challenge_** Modify your algorithm to be valid for any value of _x_.
 
-### Weekly Problem 01
+### Weekly Problem 01 (Delayed until Week 2)
 
 Read the handout prior to class on Friday. Try to understand the derivation
-of Equation 4. Then, complete problem 5.1 (First Computer Lab: HIV Example)
-in Physical Modeling. In addition, answer the following questions:
+of Equation 4. Before you begin, derive Equation 4 from the reading and 
+explain in detail your reasoning for each step of the derivation.
 
-_Challenge_: Write a function to compute the viral load for a given set
-of parameters (`A`, `B`, `alpha`, `beta`) and produce figures for
-assignment part b using your function.
+Next, complete Problem 5.1 (First Computer Lab: HIV Example) in Physical 
+Modeling. In addition, answer the following questions:
+
+ 1. What were the key assumptions made in the derivation and in your 
+    approach to solving the problem that made the problem tractable? 
+ 2. What would be the consequences of relaxing the assumptions listed
+    in question 1? How might your approach to solving the problem change?
+ 3. How did the two limiting cases help simplify the problem?
+
+**_Challenge_**: Write a function to compute the viral load for a given set
+of parameters (`A`, `B`, `alpha`, `beta`). Produce figures for assignment 
+part b using your function.
