@@ -142,4 +142,4 @@ for n in range(0,100):
     d.append(distance)
     
 histogram = plt.hist(d)
-histogram.show
+plt.show
