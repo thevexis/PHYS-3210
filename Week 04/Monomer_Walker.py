@@ -19,13 +19,14 @@ import matplotlib.pyplot as plt
 
 
 x = 0
-y = 0
+y = 1
 k = True
 i = True
 current_position = [[x,y]]
 fig = plt.figure()
 ax = fig.add_subplot(111)
 spot = current_position[0]
+m = True 
 
 
 while k:
@@ -47,12 +48,44 @@ while k:
         else:
             direction = rand.randint(-1,2)
     
+    
     if new_position in current_position:
-        k = False
+        W = new_position[0] + 1
+        E = new_position[0] - 1
+        N = new_position[1] + 1
+        S = new_position[1] - 1
+        West = [W,new_y]
+        East = [E,new_y]
+        North = [new_x,N]
+        South = [new_x,S]
+        if West and East and North and South in current_position:
+            k = False
+        else:
+            while m:
+                v = rand.randint(0,4)
+                if v == 0:
+                    new_position = West
+                    if new_position not in current_position:
+                        m = False
+                elif v == 1:
+                    new_position = East
+                    if new_position not in current_position:
+                        m = False
+                elif v == 2:
+                    new_position = North
+                    if new_position not in current_position:
+                        m = False
+                elif v == 3:
+                    new_position = South
+                    if new_position not in current_position:
+                        m = False
+            
     else:
         current_position.append(new_position)
         spot = new_position
         i = True 
+        x = new_position[0]
+        y = new_position[1]
     
     
     ax.plot(current_position, "-")
