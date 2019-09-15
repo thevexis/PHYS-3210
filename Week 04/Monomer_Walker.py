@@ -58,7 +58,7 @@ while k:
         East = [E,new_y]
         North = [new_x,N]
         South = [new_x,S]
-        if West and East and North and South in current_position:
+        if West in current_position and East in current_position and North in current_position and South in current_position:
             k = False
         else:
             while m:
