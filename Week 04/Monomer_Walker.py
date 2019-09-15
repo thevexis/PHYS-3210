@@ -50,6 +50,8 @@ while k:
     
     
     if new_position in current_position:
+        new_x = x + direction
+        new_y = y + direction
         W = new_position[0] + 1
         E = new_position[0] - 1
         N = new_position[1] + 1
