@@ -20,9 +20,8 @@ sine_x_array = np.sin(x_array)
 df = np.gradient(sine_x_array,h)
 
 
-def derivative(f):
+def derivative(f,h):
     i = 1
-    h = 0.0001
     while i < len(f):
         df[i] = (f[i] - f[i-1])/h
         i = i + 1
@@ -31,7 +30,7 @@ def derivative(f):
 
 
 
-function = derivative(sine_x_array)
+function = derivative(sine_x_array,h)
 
 print("This is Cosine:", function)
 
@@ -53,7 +52,12 @@ plt.plot(x_array, function, "r")
 plt.plot(x_array, df )
 plt.show()
 
+#second derivative with np gradient function
+df2 = np.gradient(df,h)
+plt.plot(x_array, df2, "g")
+plt.show()
+
 #second derivative
-function2 = derivative(function)
+function2 = derivative(function,h)
 plt.plot(x_array, function2)
 plt.show()
