@@ -21,15 +21,20 @@ df = np.gradient(sine_x_array,h)
 
 
 def derivative(f):
+    i = 1
     h = 0.001
-    for n in range(0,(len(f)-1)):
-        difference = f[n+1]
-        df = [(difference - f[n])/(h)]
-    return df[n-1] 
+    while i < len(f):
+        df[i] = (f[i] - f[i-1])/h
+        i = i + 1
+    return df
+
+
 
 
 function = derivative(sine_x_array)
 
-plt.plot(x_array, function)
+
+plt.plot(x_array, function, "r")
+plt.show()
 plt.plot(x_array, df)
 plt.show()
