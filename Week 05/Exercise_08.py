@@ -13,7 +13,7 @@ import numpy as np
 
 start = -2*math.pi
 stop = 2*math.pi + 0.000000001
-h = 0.01
+h = 0.0001
 x_array = np.arange(start, stop, h)
 sine_x_array = np.sin(x_array)
 
@@ -22,7 +22,7 @@ df = np.gradient(sine_x_array,h)
 
 def derivative(f):
     i = 1
-    h = 0.01
+    h = 0.0001
     while i < len(f):
         df[i] = (f[i] - f[i-1])/h
         i = i + 1
@@ -39,5 +39,21 @@ plt.plot(x_array, function, "r")
 plt.show()
 
 print("This is Sine:", sine_x_array)
-plt.plot(x_array, df)
+plt.plot(x_array, sine_x_array)
+plt.show()
+
+
+plt.plot(x_array, function, "r")
+plt.plot(x_array, sine_x_array )
+plt.show()
+
+
+#Graph of numpys gradient and mine are so close to the same you do not see a difference on the graph
+plt.plot(x_array, function, "r")
+plt.plot(x_array, df )
+plt.show()
+
+#second derivative
+function2 = derivative(function)
+plt.plot(x_array, function2)
 plt.show()
