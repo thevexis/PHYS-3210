@@ -5,6 +5,17 @@ Created on Mon Sep 16 10:08:54 2019
 @author: thevexis
 
 Exercise_08
+Derivatives:
+The derivative refers to the slope of a line at any given point on a function and 
+can sometimes be expressed as another function. If we have f(x) = x^2 then we can find 
+the slope of the line at any two points, say x = 0 and x = 1. Using our slope formula rise 
+over run we see that the slope is 1. We can do this between any two points but if we want to find the slope
+at a specific one point we will need to make the distance between the two points arbitralily small so we can have our 
+point x and another point x + h where h is really small and we can say approaches zero. 
+Then we can just use our slope formula and the 'run' will be x - x + h or just h, and the rise
+will be f(x+h) - f(x). Now we put all this into one equation with a limit as h approaches zero and we get 
+lim h --> 0 ((f(x+h) - f(x))/h). And that is our derivative.   
+    
 """
 
 import matplotlib.pyplot as plt
@@ -63,5 +74,5 @@ plt.show()
 x = x[:-1]
 #second derivative
 function2 = derivative(function,h)
-plt.plot(x, function2)
+plt.plot(x, function2, "y")
 plt.show()
