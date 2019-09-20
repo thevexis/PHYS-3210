@@ -11,8 +11,7 @@ Integration
 import matplotlib.pyplot as plt
 import math as math
 import numpy as np
-
-
+import scipy.integrate as integrate1
 
 start = 0
 stop = 10 
@@ -35,6 +34,7 @@ def integrate(f, h):
     return summation
 
 done = integrate(function_x,h)
+compare = integrate1.quad(function_x,0,10)
 
         
     

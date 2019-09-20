@@ -76,3 +76,14 @@ x = x[:-1]
 function2 = derivative(function,h)
 plt.plot(x, function2, "y")
 plt.show()
+
+
+df2 = df2[:-2]
+
+relative_error = (df2 - function2)/(function2) * 100 
+plt.plot(relative_error)
+plt.show()
+
+
+
+
