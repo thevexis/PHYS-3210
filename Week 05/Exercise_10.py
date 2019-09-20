@@ -15,7 +15,7 @@ import numpy as np
 import numpy.random as rand
 
 
-N = 10000000
+N = 1000000
 
 
 pos_x = rand.rand(N)
@@ -26,32 +26,30 @@ pos_y = rand.rand(N)
 y = (pos_y - 0.5)*2
 
 
-
-
-plt.plot(x,y,'o')
-plt.show()
-
 i = 0 
 N_pond = 0
 distance = []
-Pond = []
+Pond_x = []
+Pond_y = []
 
 
 while i < N:
     distance.append((x[i]**2 + y[i]**2)**(0.5))
     if distance[i] <= 1:
-        Pond.append((x[i]**2 + y[i]**2)**(0.5))
+        Pond_x.append(x[i])
+        Pond_y.append(y[i])
         N_pond += 1
     i += 1 
     
 Circle_over_Square = N_pond/N
 Area_Square = 4
 Area_Pond = 4 * Circle_over_Square
-print(Area_Pond)
+
 
 plt.plot(x,y,'o')
-plt.plot(Pond, 'o','r')
+plt.plot(Pond_x, Pond_y, 'o','r')
 plt.show()
+print("Area of the Pond:", Area_Pond)
 
 
 
