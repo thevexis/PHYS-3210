@@ -52,7 +52,11 @@ plt.show()
 print("Area of the Pond:", Area_Pond)
 
 
+"""
+It would seem that you need at least one million random points to consistently 
+get the value for pi to three significant figures. 
 
+"""
 
 
 

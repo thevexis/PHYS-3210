@@ -34,7 +34,7 @@ def integrate(f, h):
     return summation
 
 done = integrate(function_x,h)
-compare = integrate1.quad(function_x,0,10)
+compare = integrate1.quad(lambda x: function_x, 0, 10)
 
         
     
