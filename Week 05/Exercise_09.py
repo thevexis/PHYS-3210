@@ -14,10 +14,10 @@ import numpy as np
 import scipy.integrate as integrate1
 
 start = 0
-stop = 10 
+stop = 10**4 
 h = 0.001
 
-x_array = np.arange(start, stop, h)
+x_array = np.arange(stop, start, -h)
 
 function_x = x_array**2
 
@@ -34,7 +34,21 @@ def integrate(f, h):
     return summation
 
 done = integrate(function_x,h)
-compare = integrate1.quad(lambda x: function_x, 0, 10)
 
+trap = np.trapz(function_x, None, 0.001)
+#compare = integrate1.quad(lambda x: function_x, 0, 10)
+print("High to Low", done)
+#print(trap)
         
-    
+
+start = 0
+stop = 10**4 
+h = 0.001
+
+x_array = np.arange(start, stop, h)
+
+function_x = x_array**2
+
+done = integrate(function_x,h)
+
+print("Low to High", done)
