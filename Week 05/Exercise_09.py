@@ -15,7 +15,7 @@ import scipy.integrate as integrate1
 
 start = 0
 stop = 10**4 
-h = 0.001
+h = 0.0001
 
 x_array = np.arange(stop, start, -h)
 
@@ -43,7 +43,7 @@ print("High to Low", done)
 
 start = 0
 stop = 10**4 
-h = 0.001
+h = 0.0001
 
 x_array = np.arange(start, stop, h)
 
