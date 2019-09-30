@@ -21,11 +21,13 @@ import numpy as np
 import numpy.random as rand
 
 
+
+x_array = np.arange(0,10,0.01)
+square = x_array**2
+
 x = []
 y = []
-x1 = []
 function_x = []
-square = []
 
 for i in range(1000):
     plain = rand.rand(2)
@@ -33,18 +35,17 @@ for i in range(1000):
     y_values = plain[1]*100
     x.append(x_values)
     y.append(y_values)
-    functionx = (x_values)**2
-    square.append(x_values**2) 
+    functionx = x_values**2
     function_x.append(functionx)
-    if y[i] < function_x[i]:
-        function_x.append(y[i])
+    if y_values < square[i]:
+        function_x.append(y_values)
 
 change = len(function_x) - len(y)
 y2 = function_x[:-change]
     
 plt.plot(x,y,'o')
-plt.plot(x,square,'o')
-#plt.plot(x,y2,'o')
+plt.plot(x_array,square,'o')
+plt.plot(x,y2,'o')
 
 
     
