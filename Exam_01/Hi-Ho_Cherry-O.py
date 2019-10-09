@@ -56,8 +56,10 @@ for i in range(100):
     average.append(rounds)
     
 plt.hist(average)
+plt.xlabel("Number of Rounds")
+plt.ylabel("Frequency")
+plt.savefig("Even_Spaced.png")
 plt.show()
-
 
 
 #Old Game with double size on the spinner for picking cherrys
@@ -101,9 +103,11 @@ for i in range(100):
     
  
 plt.hist(old_average)
+plt.xlabel("Number of Round")
+plt.ylabel("Frequency")
+plt.savefig("Uneven_Spaced.png")
 plt.show()
 
-    
     
 
     
