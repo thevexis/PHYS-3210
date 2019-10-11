@@ -33,11 +33,11 @@ def integrate(f, h):
         i += 1
     return summation
 
-done = integrate(function_x,h)
+done1 = integrate(function_x,h)
 
 trap = np.trapz(function_x, None, 0.001)
 #compare = integrate1.quad(lambda x: function_x, 0, 10)
-print("High to Low", done)
+print("High to Low", done1)
 #print(trap)
         
 
@@ -49,6 +49,18 @@ x_array = np.arange(start, stop, h)
 
 function_x = x_array**2
 
-done = integrate(function_x,h)
+done2 = integrate(function_x,h)
 
-print("Low to High", done)
+print("Low to High", done2)
+
+b = 1.0e4
+a = 0 
+actual = ((b**3)-(a**3))/3
+differenceLH = actual - done1
+differenceHL = actual - done2
+print("Comparison of the difference between low-high to high low")
+print("Low to High gives:",differenceLH)
+print("High to Low gives:",differenceHL)
+
+
+
