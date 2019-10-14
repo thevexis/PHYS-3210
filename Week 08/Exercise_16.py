@@ -61,6 +61,7 @@ plt.plot(y,t)
 plt.show()
 
 
+#for t>=1
 def n(m):
     return m - np.tanh((0.5)*m)
 
@@ -70,7 +71,13 @@ plt.show()
 zero2 = opt.newton(n,1)
 
 """
-At this point we only have zeros at zero and no longer have zeros at any m value
+At this point we only have zeros at zero and no longer have zeros at any m value.
+
+When we look at the seafloor we find stripped patterns where one section of the floor
+is oriented either north or south and its neighbor is oriented the other direction. 
+This shows that new layers of the seafloor are spreading out from a certain point and that
+because of their orientation the magnetic field of the earth was in that direction at that
+time in history. 
 """
 
 
