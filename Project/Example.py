@@ -13,6 +13,7 @@ import matplotlib.pylab as p;
 from mpl_toolkits.mplot3d import Axes3D
 from numpy import *;
 import numpy;
+
 print("Initializing")
 Nmax = 50; Niter = 70; V=zeros((Nmax,Nmax),float)
 
