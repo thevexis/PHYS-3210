@@ -79,3 +79,6 @@ CS = CubicSpline(x,y)
 plt.plot(x,CS(x,1),'y')
 plt.show()
 
+"""
+The cubic spline of CS(x,1) looks like the first derivative 
+
