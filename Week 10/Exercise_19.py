@@ -26,11 +26,10 @@ def y(dt,m,p,k):
     v = 0.1 
     x_array = []
     v_array = []
-    t_array = np.arange(0,10,dt)
+    t_array = np.arange(0,40,dt)
     
     v = v + (dt/m)*(-k*(x**(p-1)))
     x = x + dt*v
-    #v = v_0 + (dt/m)*(-k*(x**(p-1)))
     
     for t in t_array:
         
@@ -43,8 +42,8 @@ def y(dt,m,p,k):
     return x_array, v_array, t_array 
     
 
-for  n in range(2,7):
-    x_array, v_array, t_array = y(0.01,1,n,1)
+for  n in range(2,12,2):
+    x_array, v_array, t_array = y(0.1,1,n,1)
     
     plt.plot(t_array,x_array)
 
@@ -52,7 +51,7 @@ for  n in range(2,7):
 plt.show()
 
 
-for n in range(2,7):
+for n in range(2,12,2):
     x_array,v_array,t_array = y(0.1,1,n,1)
     
     plt.plot(t_array,v_array)
