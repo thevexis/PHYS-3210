@@ -20,7 +20,7 @@ y_1(t_n+1) = y_1(t) + h/m * (-k*(y_0**p-1))
 
 """
 
-def y(dt,m,p,k):
+def Euler(dt,m,p,k):
     
     x = 0.0
     v = 0.1 
