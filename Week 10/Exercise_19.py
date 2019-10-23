@@ -26,7 +26,7 @@ def y(dt,m,p,k):
     v = 0.1 
     x_array = []
     v_array = []
-    t_array = np.arange(0,40,dt)
+    t_array = np.arange(0,50,dt)
     
     v = v + (dt/m)*(-k*(x**(p-1)))
     x = x + dt*v

@@ -54,7 +54,7 @@ take more time.
 """
 
 
-
+#not currently correct
 def projectile_drag(mass,initial_x,initial_y,velocity,launch_angle):
     theta = launch_angle * (math.pi/180)
     initial_t = 0.0
@@ -85,6 +85,8 @@ plt.plot(x_position,y_position,'r')
 plt.legend("D")
 plt.show()
 
+
+#Not currently working
 print("This is a projectile with air resistance")
 print("Time it takes is:",time, "seconds")    
 print("Distance is:",distance, "meters")
