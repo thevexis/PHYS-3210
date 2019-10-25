@@ -43,7 +43,7 @@ def Euler(dt,m,p,k):
     
 
 for  n in range(2,12,2):
-    x_array, v_array, t_array = y(0.1,1,n,1)
+    x_array, v_array, t_array = Euler(0.1,1,n,1)
     
     plt.plot(t_array,x_array)
 
@@ -52,7 +52,7 @@ plt.show()
 
 
 for n in range(2,12,2):
-    x_array,v_array,t_array = y(0.1,1,n,1)
+    x_array,v_array,t_array = Euler(0.1,1,n,1)
     
     plt.plot(t_array,v_array)
 
