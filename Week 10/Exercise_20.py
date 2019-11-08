@@ -22,7 +22,7 @@ def RK2(dt,m,p,k,x0,v0):
     t_array = np.arange(0,100,dt)
     
     #Need to fix
-    k1 = dt * f(t,y)
+    #k1 = dt * f(t,y)
     
     x = x0 + dt*(v0 + (dt/(2))*(-k*(x0**(p-1))))
     v = v0 + ((dt/m)*(-k*((x+(k1/2))**(p-1))))
