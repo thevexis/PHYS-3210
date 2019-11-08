@@ -82,7 +82,7 @@ for x in x_array:
     
     elif x > 2:
         y_2 = (((k/E)*(0))+k**2)*y_0
-        y_1 = -dx*y_2 + y_1
+        y_1 = dx*y_2 + y_1
         y_0 = dx*y_1 + y_0
     
         Rbox_array.append(y_0)
