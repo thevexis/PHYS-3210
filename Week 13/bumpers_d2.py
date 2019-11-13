@@ -54,7 +54,7 @@ Z_v = X_v**2 * Y_v**2 * np.exp(-(X_v**2 + Y_v**2))
 # PLOT TRAJECTORIES W/ POTENTIAL CONTOURS
 fig, ax = plt.subplots(1, 1, figsize=(10, 8))
 
-cb = ax.contourf(X_v, Y_v, Z_v, 10, cmap="Oranges")
+cb = ax.contourf(X_v, Y_v, Z_v, 10, cmap="Purples")
 ax.plot(x1[:,0], x1[:,1], lw=2)
 ax.plot(x2[:,0], x2[:,1], lw=2)
 

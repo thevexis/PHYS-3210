@@ -21,7 +21,7 @@ def Pendulum(Initial_angle,length):
     g = 9.8 #m/s^2 acceleration due to gravity
     start = 0 #time at zero
     stop = 60 #seconds have passed
-    dt = .001 #interval of time (also h in euler and rk methods)
+    dt = 0.001 #interval of time (also h in euler and rk methods)
     t_array = np.arange(start,stop,dt)
 
     x = []
