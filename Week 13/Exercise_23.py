@@ -51,12 +51,12 @@ def Pinball(mass,InitialY,InitialX,IntVelocityY,IntVelocityX):
         vy.append(Y_1)
         
         
-        count = 0
-        for l in range(0,len(vx)-1):
-            if np.sign(vx[l]) != np.sign(vx[l+1]):
-                count += 1
-            if np.sign(vy[l]) != np.sign(vy[l+1]):
-                count += 1
+    count = 0
+    for l in range(0,len(vx)-1):
+        if np.sign(vx[l]) != np.sign(vx[l+1]):
+            count += 1
+        if np.sign(vy[l]) != np.sign(vy[l+1]):
+            count += 1
             
     
     return x, y, vx, vy, count
@@ -86,11 +86,11 @@ cbar = fig.colorbar(cb)
 cbar.ax.set_ylabel("Scattering Potential")
 
 fig.tight_layout()
-plt.savefig()
+plt.savefig('Bouncing')
 plt.show()
 
 
-Print("The number of bounces of the orange particle is:", countO)
+print("The number of bounces of the orange particle is:", countO)
 
 
 
