@@ -20,16 +20,19 @@ def Pinball(mass,InitialY,InitialX,IntVelocityY,IntVelocityX):
     dt = 0.01
     time = np.arange(start,stop,dt)
     
+    
+    ax = [] 
+    ay = [] 
     x = []
     y = []
     vx = []
     vy = []
     
-    X_2 = -(1/mass)*2*InitialX*(InitialY**2)*np.exp(-(InitialX**2)-(InitialY**2))*(1-InitialX**2)
+    X_2 = -(1/mass)*2*(InitialX)*(InitialY**2)*np.exp(-(InitialX**2)-(InitialY**2))*(1-InitialX**2)
     X_1 = dt * X_2 + IntVelocityX
     X_0 = dt * X_1 + InitialX
 
-    Y_2 = -(1/mass)*2*InitialY*(InitialX**2)*np.exp(-(InitialX**2)-(InitialY**2))*(1-InitialY**2)
+    Y_2 = -(1/mass)*2*(InitialY)*(InitialX**2)*np.exp(-(InitialX**2)-(InitialY**2))*(1-InitialY**2)
     Y_1 = dt * Y_2 + IntVelocityY
     Y_0 = dt * Y_1 + InitialY    
     
@@ -37,14 +40,16 @@ def Pinball(mass,InitialY,InitialX,IntVelocityY,IntVelocityX):
     
     for t in time:
     
-        X_2 = -(1/mass)*2*X_0*(Y_0**2)*np.exp(-(X_0**2)-(Y_0**2))*(1-X_0**2)
+        X_2 = -(1/mass)*2*(X_0)*(Y_0**2)*np.exp(-(X_0**2)-(Y_0**2))*(1-X_0**2)
         X_1 = dt * X_2 + X_1
         X_0 = dt * X_1 + X_0
     
-        Y_2 = -(1/mass)*2*Y_0*(X_0**2)*np.exp(-(X_0**2)-(Y_0**2))*(1-Y_0**2)
+        Y_2 = -(1/mass)*2*(Y_0)*(X_0**2)*np.exp(-(X_0**2)-(Y_0**2))*(1-Y_0**2)
         Y_1 = dt * Y_2 + Y_1
         Y_0 = dt * Y_1 + Y_0
         
+        Px.append(X_2)
+        Py.append(Y_2)
         x.append(X_0)
         y.append(Y_0)
         vx.append(X_1)
@@ -59,12 +64,12 @@ def Pinball(mass,InitialY,InitialX,IntVelocityY,IntVelocityX):
             count += 1
             
     
-    return x, y, vx, vy, count
+    return x, y, vx, vy, count, Px, Py
 
 
 
-x ,y , vx, vy, countB = Pinball(0.1,-0.2,-0.8,0.001,0.5)
-x1, y1, vx1, vy1, countO = Pinball(0.1,0,0.94,0.005,-0.0001)
+x ,y , vx, vy, countB, Px, Py = Pinball(0.1,-0.2,-0.8,0.001,0.5)
+x1, y1, vx1, vy1, countO, Px1, Py1 = Pinball(0.1,0,0.94,0.005,-0.0001)
 
 x_v = np.arange(-10.0, 10.01, 0.01)
 y_v = np.arange(-10.0, 10.01, 0.01)
@@ -87,12 +92,14 @@ cbar.ax.set_ylabel("Scattering Potential")
 
 fig.tight_layout()
 plt.savefig('Bouncing')
+
 plt.show()
 
 
 print("The number of bounces of the orange particle is:", countO)
 
-
+plt.plot(Px,Py)
+plt.show()
 
 
 
