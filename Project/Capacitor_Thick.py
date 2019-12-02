@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 """
 Created on Thu Nov 14 13:45:13 2019
@@ -48,16 +49,16 @@ for y in range(0,leny):
                 rho[x,y] = charge_density
 
 
-
 for tol in range(tolerance):
     for i in range(1,lenx-2):
         for j in range(1,leny-2):
-            if i in range(platex0,platex1) and j == platey0:
-                Potential[i,platey0] = Plate1
-            elif i in range(platex0-plate_distance,platex1-plate_distance) and j == platey1:
-                Potential[i,platey1] = Plate2
-            else:
-                Potential[i,j] = 0.25*(Potential[i+1,j] + Potential[i-1,j] + Potential[i,j+1] + Potential[i,j-1]) + np.pi*(rho[i,j])*(delta**2)        
+            for k in range(0,thickness):
+                if i in range(platex0,platex1) and j == platey0:
+                    Potential[i+k,platey0] = Plate1
+                elif i in range(platex0-plate_distance,platex1-plate_distance) and j == platey1:
+                    Potential[i+k,platey1] = Plate2
+                else:
+                    Potential[i,j] = 0.25*(Potential[i+1,j] + Potential[i-1,j] + Potential[i,j+1] + Potential[i,j-1]) + np.pi*(rho[i,j])*(delta**2)        
 
 x = np.arange(0,Xboxmax,delta)
 y = np.arange(0,Yboxmax,delta)
@@ -82,18 +83,4 @@ ax.set_xlabel('X')
 ax.set_ylabel('Y')
 ax.set_zlabel('Potential')
 plt.show()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
