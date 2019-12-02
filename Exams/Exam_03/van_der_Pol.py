@@ -13,6 +13,70 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+def Laser(E,derE):
+    
+    w_0 = 1 # mode's natural frequency
+    tau = 5 #loses
+    g = 3 #gain from atomic emission
+    g1 = 0.1 #saturation of gain
+    start = 0 #time at zero
+    stop = 180 #seconds have passed
+    dt = 0.001 #interval of time (also h in euler and rk methods)
+    t_array = np.arange(start,stop,dt)
+    
+    Electric_field = []
+    Derivative_E = []
+
+    Y_2 = -(w_0**2)*E - (1/tau)*derE + (g-(g1*(E**2)))*derE #initial conditions
+    Y_1 = dt * Y_2
+    Y_0 = dt * Y_1
+    
+    for t in t_array:
+        
+        Y_2 = -(w_0**2)*Y_0 - (1/tau)*Y_1 + (g-g1*(Y_0**2))*Y_1 
+        Y_1 = dt * Y_2 + Y_1
+        Y_0 = dt * Y_1 + Y_0
+        
+        Electric_field.append(Y_0)
+        Derivative_E.append(Y_1)
+        
+    return Electric_field, Derivative_E, t_array
+
+Electric_field, Derivative_E, time = Laser(1,0.1)
+
+plt.plot(time, Electric_field)
+plt.show()
+
+
+plt.plot(Electric_field,Derivative_E)
+plt.show()
+
+
+"""
+c.
+
+At first when solving this when g1 = 0 I was getting overflow errors until adjusting the tau and g parameters. 
+Figure 1 shows when g = 1/tau. In this case the phase space (orange) is still a closed loop though very thin,
+meaning small changes in E have large changes in the derivative of E. Figure 2 shows when g > 1/tau with 
+g = 1.3 and tau = 1. In this figure the Electric field over time increases very quickly and looks like a straight line 
+because the time only goes to 180 seconds but the graph axes are now times 10**8. The phase space in red never creates a closed loop which might 
+lead you to think that it is not harmonic, though given more time it could still make a loop. Figure 3 is similar to 
+figure 2 though g = 2. Figure 4 shows this increase in the electric field with g = 1.15 and tau = 1 
+
+d.
+
+Figure 5 shows when g1 > 0.0  (g1 = 0.01,tau = 1, g = 1.15) the eletric field increases until it levels out and becomes harmonic
+and at this point we can see the phase space does start to create a closed loop which does supports the idea that it becomes harmonic.
+
+e.
+
+
+
+"""
+
+
+
+
 
 
 
