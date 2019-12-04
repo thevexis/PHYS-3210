@@ -26,10 +26,23 @@ def Laser(E,derE):
     
     Electric_field = []
     Derivative_E = []
-
+    
+    
+    """
+    For solving the Van Der Pol's Equation I used an Euler method. I choose this method because while 
+    the RK4 has less error it is more complicated and having a small step (dt) using the Euler method 
+    would most certainly be accurate enough for this second order linear differential equation. I say 
+    it would be accurate enough due to the simplicity of the equation and we are not solving for values
+    with extensive significant figures.
+    
+    
+    """
+    
     Y_2 = -(w_0**2)*E - (1/tau)*derE + (g-(g1*(E**2)))*derE #initial conditions
     Y_1 = dt * Y_2
     Y_0 = dt * Y_1
+    
+    
     
     for t in t_array:
         
@@ -53,6 +66,9 @@ plt.show()
 
 
 """
+
+*note* w_0 = 1 in all of these figures
+
 c.
 
 At first when solving this when g1 = 0 I was getting overflow errors until adjusting the tau and g parameters. 
@@ -70,7 +86,13 @@ and at this point we can see the phase space does start to create a closed loop 
 
 e.
 
-
+Figure 6 is more inline with a typical van der Pol's osicillator graph (tau = 5, g = 3, g1 = 0.1)
+The Van Der Pol's Equation is a second order linear differential equation that is a non-conservative oscillator. Now a relaxation oscillator 
+in electronics is a nonlinear oscillator cicuit that produces a nonsinusoidal anharmonic ouput signal. 
+We can see that under the given parameters this system is not random as it creates a closed symmetric loop 
+which means that it is harmonic of some degree in this case anharmonic. The harmonic oscillator leads to symmetric ellipses however
+in our case it is not an ellipse but a symmetric loop from the differential equation, again anharmonic. The closed orbits indicate periodic behavior. 
+The size of the loop is determined by the amount of energy in the system. 
 
 """
 

@@ -12,7 +12,12 @@ import matplotlib.pyplot as plt
 
 
 """
-Using an Euler Method
+Using an Euler Method due to its simple and more concise method. The Euler method is accurate than a
+RK2 or higher but is less computationally expensive and is quicker to code. I am also not too concerned
+with having a great deal of accuracy as I do not need an extensive amount of significant figures for
+this solution. The accuracy accquired by an Euler method with my step (dt) being 0.001 is acceptable 
+for this problem.
+
 """
 
 def Pendulum(Initial_angle,length):
@@ -27,8 +32,12 @@ def Pendulum(Initial_angle,length):
     x = []
     y = []
     
+    vx = []  #velocities of cartesian space
+    vy = []
+    
     theta = [] #used for the phase space
     theta_dot = []
+    
     
     y_2 = (-g/length)*np.sin(Initial_angle) #initial conditions
     y_1 = dt*y_2
@@ -50,7 +59,8 @@ def Pendulum(Initial_angle,length):
         
         y_0 = dt * y_1 + y_0
         
-        
+        vx.append(length*np.sin((y_1*np.pi)/180))
+        vy.append(length*np.cos((y_1*np.pi)/180))
         
         x.append(length*np.sin((y_0*np.pi)/180))
         y.append(length*-np.cos((y_0*np.pi)/180))
@@ -63,14 +73,17 @@ def Pendulum(Initial_angle,length):
             Actual_Period = Period[l] - Period[l-1] 
     
     
-    return x ,y , theta, theta_dot, t_array, Theoretical_Period, Actual_Period
+    return x ,y , theta, theta_dot, t_array, Theoretical_Period, Actual_Period, vx, vy
 
-x, y, theta, theta_dot, t_array, Theoretical_Period, Actual_Period = Pendulum(45,400) #length must be long enough for pendulum to start
+x, y, theta, theta_dot, t_array, Theoretical_Period, Actual_Period, vx, vy = Pendulum(45,40) #length must be long enough for pendulum to start
 
 plt.plot(x,y)
 plt.title('Cartesian Space')
 plt.show()
 
+plt.plot(vx,vy,'black')
+plt.title('Velocity Cartesian Space')
+plt.show()
 
 print('Actual Period:', Actual_Period)
 print('Theoretical Period:',Theoretical_Period)
@@ -84,10 +97,30 @@ plt.title('Phase Space')
 plt.show()
 
 """
+multiple angels
 
-The Cartesian Space plot makes a parabola which is the exact path a 
+The larger the initial angle the greater the period (slightly due to parameters)
+"""
+for k in range(30,70,5):
+    x, y, theta, theta_dot, t_array, Theoretical_Period, Actual_Period, vx, vy = Pendulum(k,40) #length must be long enough for pendulum to start
+
+    plt.plot(t_array,x)
+
+    print('With Angle ',k)
+    print('Actual Period:', Actual_Period)
+    print('Theoretical Period:',Theoretical_Period)
+    Period_Error = (Actual_Period - Theoretical_Period)/Theoretical_Period * 100
+    print("At this angel the error in the actual and theoretical period is:", Period_Error,"%")
+    
+
+
+
+"""
+
+The Cartesian Space plot and the Velocity Cartesian Space plot makes a parabola which is the exact path a 
 pendelum normally follows from its starting angle to its maximum velocity
-at the center of its path to the same absolute angle with opposite sign. 
+at the center of its path to the same absolute angle with opposite sign. Of course we would expect the
+cartesian plane to look like what it does when you swing a pendulum
 The Equation for the period of the pendulum theoretically does not depend on
 theta, however this is due to the assumption made when creating the equation. 
 The assumption being that the sin(theta) = theta which holds true for small 
