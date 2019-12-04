@@ -120,7 +120,10 @@ for k in range(30,70,5):
 The Cartesian Space plot and the Velocity Cartesian Space plot makes a parabola which is the exact path a 
 pendelum normally follows from its starting angle to its maximum velocity
 at the center of its path to the same absolute angle with opposite sign. Of course we would expect the
-cartesian plane to look like what it does when you swing a pendulum
+cartesian plane to look like what it does when you swing a pendulum but the velocity cartesian plot is 
+a parabola as well though it is upside down. This is also makes sense as you would have your maximum velocity
+for both your x and y at the midpoint but the maximum y velocity is always down while the x component is 
+moving left or right. 
 The Equation for the period of the pendulum theoretically does not depend on
 theta, however this is due to the assumption made when creating the equation. 
 The assumption being that the sin(theta) = theta which holds true for small 

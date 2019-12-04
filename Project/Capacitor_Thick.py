@@ -54,7 +54,7 @@ for tol in range(tolerance):
         for j in range(1,leny-2):
             for k in range(0,thickness):
                 if i in range(platex0,platex1) and j == platey0:
-                    Potential[i+k,platey0] = Plate1
+                    Potential[i-k,platey0] = Plate1
                 elif i in range(platex0-plate_distance,platex1-plate_distance) and j == platey1:
                     Potential[i+k,platey1] = Plate2
                 else:
