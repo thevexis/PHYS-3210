@@ -46,9 +46,16 @@ for n in range(1,N+1):
     p = ax.plot(n, y, 'o', c='r')
 
 ax.set_xlabel('N')
-ax.set_ylabel('Thingy')
+ax.set_ylabel('(H_up - H_dn) / (|H_up| + |H_dn|)')
 ax.set_title('Round Up vs Round Down')
 fig.show()
 
+"""
+Due to python storing only up to 16 digits if you start summing with low numbers it puts them into 
+scientific notation and so when adding them decimals are not lost  as often as high to low because this
+will just keep the whole number. So, if you add say 1.9*10^8 + 1.6*10-16 then the 6*10^-17 will be lost. 
+In this case we are doing 1/N are low numbers are for high values of N which our graph shows less difference
+for these higher values.
 
+"""
 
