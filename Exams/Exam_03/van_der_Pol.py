@@ -29,7 +29,12 @@ def Laser(E,derE):
     
     
     """
-    For solving the Van Der Pol's Equation I used an Euler method. I choose this method because while 
+    
+    
+    For solving the Van Der Pol's Equation I used an Euler method. 
+    The equation d^2E/dt^2 = -(w_0**2)*E - (1/tau)*dE/dt + (g-(g1*(E**2)))*dE/dt
+    was rewritten as Y_2 = -(w_0**2)*Y_0 - (1/tau)*Y_1 + (g-g1*(Y_0**2))*Y_1 where Y_1 is the first
+    derivative and Y_2 is the second derivative. I choose the Euler method because while 
     the RK4 has less error it is more complicated and having a small step (dt) using the Euler method 
     would most certainly be accurate enough for this second order linear differential equation. I say 
     it would be accurate enough due to the simplicity of the equation and we are not solving for values
@@ -93,6 +98,30 @@ We can see that under the given parameters this system is not random as it creat
 which means that it is harmonic of some degree in this case anharmonic. The harmonic oscillator leads to symmetric ellipses however
 in our case it is not an ellipse but a symmetric loop from the differential equation, again anharmonic. The closed orbits indicate periodic behavior. 
 The size of the loop is determined by the amount of energy in the system. 
+
+The orbits of anharmonic oscillations will still be ellipse like,
+but with angular or curved corners that become more noticeable with increasing nonlinearity 
+just as we see in the phase space of the the laser.
+Closed trajectories describe periodic oscillations meaning the same E,E_dot occur again and again, 
+with a clockwise motion arising from some restoring force.
+There are a number of ways  to decide if a system is chaotic instead of just complex. 
+Using phase space to find geometric scructures as we see in ours is one of them,
+and determination of the Lyupanov coefficient (which has to do with the speration of the lines in phase space is another.
+Both show an underlying simplicity within the complexity that we initially see.
+
+
+Reading from the book we see: (I could not explain this very well while getting the full idea that was not basically what the text says)
+'When a chaotic pendulum is driven by a not-too-large driving torque, 
+it is possible to pick the magnitude for this torque such that after the initial transients die off,
+the average energy put into the system during one period exactly balances the average energy 
+dissipated by friction during that period
+This leads to limit cycles that appear as closed ellipse-like figures. 
+Yet unstable solutions may make sporadic jumps between limit cycles.'
+
+We could see a limit cycle in the Van der Pol's equation. We could get closed ellipse-like figures
+though if we made the g1 (saturation of the gain) zero and g greater we started to see the electric field 
+increasing continually meaning that the average energy being inputed was greater than that being taken
+away from the system in each period.
 
 """
 
